@@ -40,10 +40,38 @@ for($i = 0; $i < sizeof($fullNames); $i++) {
 
 
 
-// Test
-echo "<h1>Names</h1>";
-for ($i = 0; $i < sizeof($validFullNames); $i++) {
-  echo $validFullNames[$i] ."<br>";
-}
+
+// Display results
+
+echo "<h1>Names Results</h1>";
+
+echo "<h2>All Names</h2>";
+echo "<p>There are ". sizeof($fullNames) ." total names</p>";
+echo "<ul>";
+  foreach($fullNames as $fullName) {
+    echo "<li>$fullName</li>";
+  }
+echo "</ul>";
+
+echo "<h2>Valid Names</h2>";
+echo "<p>There are ". sizeof($validFullNames) ." total valid names</p>";
+echo "<ul>";
+  foreach($validFullNames as $validFullName) {
+    echo "<li>$validFullName</li>";
+  }
+echo "</ul>";
+
+echo "<h2>Unique Names</h2>";
+$uniqueNames = (array_unique($validFullNames));
+echo "<p>There are ". sizeof($uniqueNames) ." total unique names</p>";
+echo "<ul>";
+  foreach($uniqueNames as $uniqueName) {
+    echo "<li>$uniqueName</li>";
+  }
+echo "</ul>";
+
+
+
+
 
 ?>
