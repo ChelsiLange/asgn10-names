@@ -61,6 +61,42 @@ echo "<h2>Unique Last Names</h2>";
 $uniqueLastNames = (array_unique($lastNames));
 echo "<p>There are ". sizeof($uniqueLastNames) ." total unique last names</p>";
 
+echo "<h2>Top Ten First Names</h2>";
+$nameCount['Nobody'] = 0;
+for($i = 0; $i < sizeof($firstNames); $i++) { 
+  if (array_key_exists($firstNames[$i], $nameCount)) {
+    $nameCount[$firstNames[$i]] = $nameCount[$firstNames[$i]] + 1;
+  }
+  else {
+    $nameCount[$firstNames[$i]] = 0;
+  }
+}
+arsort($nameCount);
+$nameCountNum = array_slice($nameCount, 0, 10);
+$justNames = array_keys($nameCountNum);
+for($i= 0; $i < 10; $i++) {
+  echo "<p>" .$justNames[$i]. " appears " .$nameCountNum[$justNames[$i]]. " times.</p>";
+}
+
+echo "<h2>Top Ten Last Names</h2>";
+$nameCount['Nobody'] = 0;
+for($i = 0; $i < sizeof($lastNames); $i++) { 
+  if (array_key_exists($lastNames[$i], $nameCount)) {
+    $nameCount[$lastNames[$i]] = $nameCount[$lastNames[$i]] + 1;
+  }
+  else {
+    $nameCount[$lastNames[$i]] = 0;
+  }
+}
+arsort($nameCount);
+$nameCountNum = array_slice($nameCount, 0, 10);
+$justNames = array_keys($nameCountNum);
+for($i= 0; $i < 10; $i++) {
+  echo "<p>" .$justNames[$i]. " appears " .$nameCountNum[$justNames[$i]]. " times.</p>";
+}
+
+
+
 //This is as far as I could figure it out.
 
 ?>
